@@ -1,0 +1,25 @@
+---
+title: "Developing Data Products Leaflet"
+author: "Isidora Koronia"
+date: "3/7/2020"
+output: html_document
+---
+
+
+## Leaflet Map in Athens
+
+Below is presented Acropolis and Likavittos in Athens:
+
+```{r}
+
+library(leaflet)
+
+df<-data.frame(lat=c(37.971775,37.983422),lng=c(23.725694,23.746748),description=c("Acropolis of Athens","Likavittos"))
+
+m <- leaflet()
+m <- addTiles(m)
+m <- addMarkers(m, lng=df$lng, lat=df$lat, popup=df$description,clusterOptions = markerClusterOptions()) 
+
+m
+```
+
